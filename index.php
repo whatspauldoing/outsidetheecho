@@ -7,7 +7,7 @@
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <!-- <script type='text/javascript' src='http://localhost:8888/outsidetheecho/bootstrap/js/bootstrap.js?ver=4.8'></script> -->
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Noto+Serif" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>     
     </head>
     <body>
@@ -20,31 +20,142 @@
             </div>
             <div class="row">
                 <div class="col-md-12 center">
-                    <a href='search:brexit'>Brexit</a> | <a href='search:brexit'>Trump</a>
+                    <span class='search_term' id='brexit'>Brexit</span><span class='search_term' id='trump'>Trump</span><span class='search_term' id='grenfell'>Grenfell</span>
+                    <span class='search_term' id='finsburypark'>Finsbury Park</span>
                 </div>
             </div>            
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-4" style="text-align:left">
-                    <h3>Left Wing</h3>
+                    <h3>Left</h3>
                     <div id='left-wing'>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-4" style="text-align:right">
-                    <h3>Right Wing</h3>
-                    <p>Right wing twitter feed</p>
+                    <h3>Right</h3>
+                    <div id='right-wing'>
+                    </div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
         </div>
         <script>
             jQuery(document).ready(function() {
-                jQuery.get( "https://api.twitter.com/1.1/search/tweets.json?q=brexit", function( data ) {
-                    jQuery( "#left-wing" ).html( data );
-                    alert( "Load was performed." );
+                searchTerm = encodeURIComponent("brexit");
+                leftwing = encodeURIComponent("from:DailyMirror OR from:guardian OR from:independent");
+                jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + leftwing + "&result_type=recent&language=en&include_entities=true"), function( data ) {
+                    jQuery.each(data,function(key,val) {
+                        jQuery.each(val,function(key2,val2) {
+                            if(val2['text']) {
+                                formatted_text = "";
+                                unformatted_text = val2['text'];
+                                text_array = unformatted_text.split(" ");
+                                for(text in text_array) {
+                                    if(!text_array[text].includes("t.co"))  {
+                                       formatted_text += text_array[text] + " ";
+                                    }
+                                }
+                                
+                                formatted_urls = "";
+                                if(val2['entities']) {
+                                    console.log(val2['entities']);
+                                    jQuery.each(val2['entities']['urls'], function() {
+                                        formatted_urls += "<a href='" + this.expanded_url + "'><i>" + this.display_url + "</i></a>" + "<br/>";
+                                    });
+                                }
+                                jQuery("#left-wing").append("<a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a><br/><br/>");
+                            }
+                        });
+                    });
+                });
+                rightwing = encodeURIComponent("from:telegraph OR from:DailyMailUk OR from:DailyExpressUk");
+                jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + rightwing + "&result_type=recent&language=en&include_entities=true"), function( data ) {
+                    jQuery.each(data,function(key,val) {
+                        jQuery.each(val,function(key2,val2) {
+                            if(val2['text']) {
+                                formatted_text = "";
+                                unformatted_text = val2['text'];
+                                text_array = unformatted_text.split(" ");
+                                for(text in text_array) {
+                                    if(!text_array[text].includes("t.co"))  {
+                                       formatted_text += text_array[text] + " ";
+                                    }
+                                }
+                                
+                                formatted_urls = "";
+                                if(val2['entities']) {
+                                    console.log(val2['entities']);
+                                    jQuery.each(val2['entities']['urls'], function() {
+                                        formatted_urls += "<a href='" + this.expanded_url + "'><i>" + this.display_url + "</i></a>" + "<br/>";
+                                    });
+                                }
+                                jQuery("#right-wing").append("<a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a><br/><br/>");
+                            }
+                        });
+                    });
+                });       
+                jQuery(".search_term").click(function() {
+                    console.log('clicked');
+                    newNews(this.id);
                 });
             });
+            function newNews(searchTerm) {
+                jQuery("#left-wing").html("");
+                jQuery("#right-wing").html("");
+                leftwing = encodeURIComponent("from:DailyMirror OR from:guardian OR from:independent");
+                jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + leftwing + "&result_type=recent&language=en&include_entities=true"), function( data ) {
+                    jQuery.each(data,function(key,val) {
+                        jQuery.each(val,function(key2,val2) {
+                            if(val2['text']) {
+                                formatted_text = "";
+                                unformatted_text = val2['text'];
+                                text_array = unformatted_text.split(" ");
+                                for(text in text_array) {
+                                    if(!text_array[text].includes("t.co"))  {
+                                       formatted_text += text_array[text] + " ";
+                                    }
+                                }
+                                
+                                formatted_urls = "";
+                                if(val2['entities']) {
+                                    console.log(val2['entities']);
+                                    jQuery.each(val2['entities']['urls'], function() {
+                                        formatted_urls += "<a href='" + this.expanded_url + "'><i>" + this.display_url + "</i></a>" + "<br/>";
+                                    });
+                                }
+                                jQuery("#left-wing").append("<a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a><br/><br/>");
+                            }
+                        });
+                    });
+                });
+                rightwing = encodeURIComponent("from:telegraph OR from:DailyMailUk OR from:DailyExpressUk");
+                jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + rightwing + "&result_type=recent&language=en&include_entities=true"), function( data ) {
+                    jQuery.each(data,function(key,val) {
+                        jQuery.each(val,function(key2,val2) {
+                            if(val2['text']) {
+                                formatted_text = "";
+                                unformatted_text = val2['text'];
+                                text_array = unformatted_text.split(" ");
+                                for(text in text_array) {
+                                    if(!text_array[text].includes("t.co"))  {
+                                       formatted_text += text_array[text] + " ";
+                                    }
+                                }
+                                
+                                formatted_urls = "";
+                                if(val2['entities']) {
+                                    console.log(val2['entities']);
+                                    jQuery.each(val2['entities']['urls'], function() {
+                                        formatted_urls += "<a href='" + this.expanded_url + "'><i>" + this.display_url + "</i></a>" + "<br/>";
+                                    });
+                                }
+                                jQuery("#right-wing").append("<a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a><br/><br/>");
+                            }
+                        });
+                    });
+                });                
+            }
         </script>
     </body>
 </html>
