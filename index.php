@@ -25,19 +25,19 @@
                 </div>
             </div>            
             <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-4" style="text-align:left">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-4 col-md-4" style="text-align:left">
                     <h3>Left</h3>
                     <div id='left-wing'>
                     </div>
                 </div>
-                <div class="col-md-2"></div>
-                <div class="col-md-4" style="text-align:right">
+                <div class="col-sm-2 col-md-2"></div>
+                <div class="col-sm-4 col-md-4" style="text-align:right">
                     <h3>Right</h3>
                     <div id='right-wing'>
                     </div>
                 </div>
-                <div class="col-md-1"></div>
+                <div class="col-sm-1 col-md-1"></div>
             </div>
         </div>
         <script>
