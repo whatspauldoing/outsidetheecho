@@ -8,6 +8,7 @@ function setUp() {
                 jQuery(".search_term").click(function() {
                     newNews(this.id);
                 });   
+                last_topic = val;
             }
         });
     } else {
@@ -22,8 +23,8 @@ function setUp() {
             newNews(jQuery("#freeSearch").val());
             addTag(jQuery("#freeSearch").val());
         }
-    });                
-    newNews("uk");
+    });            
+    newNews(last_topic);
 }
 
 
