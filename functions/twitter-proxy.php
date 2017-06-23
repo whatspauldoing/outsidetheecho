@@ -67,6 +67,7 @@ function buildAuthorizationHeader($oauth) {
 	return $r;
 }
 
+
 // Set up the oauth Authorization array
 $oauth = array(
 	'oauth_consumer_key' => $config['consumer_key'],

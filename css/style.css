@@ -195,6 +195,7 @@ h4 {
 @media screen and (max-width: 420px) {
     #xs-screen {
         display:block;
+        margin:10px 0px 50px 0px;
     }
     #searchRow {
         display:none;

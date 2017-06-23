@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="utf-8">
@@ -9,7 +10,7 @@
         <![endif]-->
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Noto+Serif" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="/outsidetheecho/js/jquery.cookie.js"></script>
+        <script src="/outsidetheecho/js/js.cookie.js"></script>
         <script src="/outsidetheecho/js/outsidetheecho.js"></script>
     </head>
     <body>
@@ -20,12 +21,12 @@
             </div>
             <div class="row">
                 <div class="col-md-12 center">
-                    <h1>Outside The Echo</h1>
+                    <h1>Outside The Echo<a href='http://twitter.com' target='_blank'><i class="fa fa-twitter" aria-hidden="true" style="margin-left:20px; color:#333;"></i></a></h1>
                     <h4>Providing balance to the social media echo chamber</h4>
                 </div>
             </div>
             <div id='xs-screen' class="row">
-                <h2>Please turn landscape, it's better for balance.</h2>
+                <h2>Please turn your device on it's side, it's better for balance.</h2>
             </div>   
             <div id='searchRow' class="row">
                 <div id='searchBox'>
@@ -50,7 +51,7 @@
             <div class='row' id='props'>
                 <div class='col-md-12'>
                     <p>This is a project born of wanting to break out of the social media echo chamber.</p>
-                    <p>Hope you enjoy it, if we get loads if views it will probably hit the API limit, but I'll cross that bridge when I come to it. Cheers!</p>
+                    <p>Hope you enjoy it, if we get loads of views it will probably hit the API limit and die, but I'll cross that bridge when I come to it. Cheers!</p>
                     <p>Thanks to:<br/>
                         <a href='https://github.com/hatemzidi' target='_blank'>https://github.com/hatemzidi</a> for the twitter-proxy code.<br/>
                         <a href='https://github.com/carhartl/jquery-cookie' target='_blank'>https://github.com/carhartl/jquery-cookie</a> for the cookies<br/>
