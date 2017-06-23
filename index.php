@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Noto+Serif" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="/outsidetheecho/js/js.cookie.js"></script>
-        <script src="/outsidetheecho/js/outsidetheecho.js"></script>
+        <script src="/outsidetheecho/js/outsidetheecho.min.js"></script>
     </head>
     <body>
         <div class="container-fluid">
