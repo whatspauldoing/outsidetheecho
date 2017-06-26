@@ -2,9 +2,8 @@ var cookieObjLeft = "";
 var cookieObjRight = "";
 var arrival = new Date().getTime();
 var refresh = true;
-function setUp() {
-    
-    last_topic="breaking";
+var last_topic = "";
+function setUp(searchForMe) {
     if(Cookies.get('searchTerms')) {
         storedSearchTerms = Cookies.get('searchTerms');
         searchTermsSplit = storedSearchTerms.split("|");
@@ -29,7 +28,11 @@ function setUp() {
             newNews(jQuery("#freeSearch").val());
             addTag(jQuery("#freeSearch").val());
         }
-    });            
+    });    
+    if(searchForMe != "") {
+        last_topic = searchForMe;
+        addTag(last_topic);
+    }            
     newNews(last_topic);
 }
 function newNews(searchTerm) {
@@ -71,7 +74,6 @@ function newNews(searchTerm) {
    } else {
         leftwing = encodeURIComponent("from:owenjones OR from:abiwilks OR from:marcuschown OR from:mrjamesob OR from:thestaggers OR from:thecanarysays OR from:TomLondon6 OR from:georgemonbiot OR from:paulmasonnews");
         jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + leftwing + "&count=10&result_type=recent&language=en&include_entities=true"), function( data ) {
-            console.log(searchTerm + " - called left");
             jQuery.each(data,function(key,val) {
                 jQuery.each(val,function(key2,val2) {
                     if(val2['text']) {
@@ -126,7 +128,6 @@ function newNews(searchTerm) {
        cookieObjRight = "";
         rightwing = encodeURIComponent("from:toadmeister OR from:Melanielatest OR from:DanielJHannan OR from:isabelhardman OR from:montie OR from:toryboypierce OR from:juliaHB1 OR from:iaindale OR from:DPJHodges");
         jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + rightwing + "&count=10&result_type=recent&language=en&include_entities=true"), function( data ) {
-            console.log(searchTerm + " - called right");
             cookieObjRight = JSON.stringify(data);
             jQuery.each(data,function(key,val) {
                 jQuery.each(val,function(key2,val2) {

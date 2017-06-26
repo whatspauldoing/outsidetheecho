@@ -4,14 +4,20 @@
         <meta charset="utf-8">
         <title>Outside the Echo - Providing balance to your social media news</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/outsidetheecho/css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Noto+Serif" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="/outsidetheecho/js/js.cookie.js"></script>
-        <script src="/outsidetheecho/js/outsidetheecho.min.js"></script>
+        <script src="/js/js.cookie.js"></script>
+        <script src="/js/outsidetheecho.min.js"></script>
+        <?php 
+            $q = $_GET['q'];
+            if($q != "") {
+                echo "<script>var searchForMe = '" . $q . "';</script>";
+            }
+        ?>        
     </head>
     <body>
         <div class="container-fluid">
@@ -23,6 +29,8 @@
                 <div class="col-md-12 center">
                     <h1>Outside The Echo<a href='http://twitter.com' target='_blank'><i class="fa fa-twitter" aria-hidden="true" style="margin-left:20px; color:#333;"></i></a></h1>
                     <h4>Providing balance to the social media echo chamber</h4>
+                    <p>I have taken a selection of promienent and active left/right wing political commentators and pulled their feeds into this page to display their often opposing views side by side.</p>
+                    <p>If you want to look up any particular topic type your search term into the box below and hit enter.</p>
                 </div>
             </div>
             <div id='xs-screen' class="row">
@@ -65,8 +73,18 @@
         </div>
         <script>
             jQuery(document).ready(function() {
-                setUp();
+                setUp(searchForMe);
             });
         </script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-101657341-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>        
     </body>
 </html>

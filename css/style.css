@@ -33,6 +33,11 @@ i {
     margin:5px 0px;
 }
 
+p {
+    font-family: 'Noto Serif', serif;
+    margin:5px;
+}
+
 #cookies {
     background-color:#555;
     min-height:20px;
