@@ -1,0 +1,29 @@
+.block {
+  width:100%;
+  min-width: 320px;
+
+  &__container {
+    width:100%;
+    min-width: 320px;
+    @media screen and (max-width: $break-handheld) {
+      margin-top: 0;
+    }
+  }
+
+  &__holder {
+    width: 960px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    min-width: 320px;
+    @media screen and (max-width: $break-large) {
+      width:960px;
+    }
+    @media screen and (max-width: $break-medium) {
+      width: 680px;
+    }
+    @media screen and (max-width: $break-handheld) {
+      width: 100%;
+      padding-top: 40px;
+    }
+  }
+}

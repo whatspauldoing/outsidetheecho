@@ -1,0 +1,18 @@
+.form {
+  .input, input[type=text] {
+    border-radius: 6px;
+    width: 300px;
+    height: 47px;
+    padding: 0 24px 0 24px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 0 auto 24px auto;
+    border: 0;
+    &::placeholder {
+      color: $grey;
+    }
+    @media screen and (max-width: $break-medium) {
+      width: 100%;
+    }
+  }
+}

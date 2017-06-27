@@ -1,0 +1,121 @@
+/*------------------------------------*\
+# Useful Mixins
+\*------------------------------------*/
+
+//Font size calcuate:
+//Usage: @include font-size(..px)
+
+@function calculate-rem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+//Clearfix
+//Usage: @extend %clearfix;
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.clearfix, .cl {
+  @extend %clearfix;
+}
+
+//Border radius
+//Usage: @include border-radius(..px)
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+//Transition
+//Usage: @include transition(...)
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+//Transform
+//Usage: @include transform(...)
+
+@mixin transform($value) {
+  -moz-transform: $value;
+  -webkit-transform: $value;
+  transform: $value;
+}
+
+//Animation
+//Usage: @include animation(...)
+
+@mixin animation($name, $iteration: 1, $timing: linear, $duration: 1s, $delay: 0) {
+  -moz-animation-name: $name;
+  -moz-animation-iteration-count: $iteration;
+  -moz-animation-timing-function: $timing;
+  -moz-animation-duration: $duration;
+  -moz-animation-delay: $delay;
+
+  -webkit-animation-name: $name;
+  -webkit-animation-iteration-count: $iteration;
+  -webkit-animation-timing-function: $timing;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-delay: $delay;
+
+  animation-name: $name;
+  animation-iteration-count: $iteration;
+  animation-timing-function: $timing;
+  animation-duration: $duration;
+  animation-delay: $delay;
+}
+
+//BoxShadow
+//Usage: @include box-shadow(...)
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
+//VerticalAlign
+//Usage: @include vertical-align(...)
+//Note: Parent must have a height for this to be effective
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//RetinaImage
+//Usage: @include retina-image(...)
+@mixin retina-image($default-image-url, $retina-image-url, $image-size: 100% auto) {
+  background: url($default-image-url) no-repeat 0 0 transparent;
+  background: url($retina-image-url) no-repeat, none;
+  background-size: $image-size;
+}
+
+//TextOverflowEllipsis
+//Usage: @include text-overflow-ellipsis(...)
+@mixin text-overflow-ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

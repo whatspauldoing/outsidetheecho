@@ -1,0 +1,22 @@
+h1 {
+  font-family: $header_typeface;
+  font-size: 44px;
+  line-height: 44px;
+  cursor: default;
+}
+
+h2,h3,h4,h5 {
+  font-family: $header_typeface;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+p {
+  font-family: $default_typeface;
+  font-size: 14px;
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}

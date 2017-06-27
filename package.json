@@ -1,0 +1,57 @@
+{
+  "name": "outsidetheecho",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatspauldoing/outsidetheecho.git"
+  },
+  "author": "Paul Seymour <whatspauldoing@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatspauldoing/outsidetheecho/issues"
+  },
+  "homepage": "https://github.com/whatspauldoing/outsidetheecho#readme",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "bson": "^1.0.4",
+    "bson-objectid": "^1.1.5",
+    "dateformat": "^2.0.0",
+    "es6-promise": "^4.1.0",
+    "lodash.sortby": "^4.7.0",
+    "moment": "^2.18.1",
+    "npm": "^5.0.3",
+    "react": "^15.4.2",
+    "react-color": "^2.11.7",
+    "react-datepicker": "^0.46.0",
+    "react-dom": "^15.4.2",
+    "react-element-portal": "^1.1.0",
+    "react-file-input": "^0.2.5",
+    "react-icons": "^2.2.3",
+    "react-modal": "^1.7.3",
+    "react-popper": "^0.6.6",
+    "react-router": "^3.0.0",
+    "url-search-params-polyfill": "^1.3.0"
+  }
+}
