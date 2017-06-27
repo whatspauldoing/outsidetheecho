@@ -1,0 +1,26 @@
+.header {
+  text-align: center;
+  h1 {
+    padding-top: 40px;
+    margin: 0 10% 36px 10%;
+    @media screen and (max-width: $break-handheld-small) {
+      font-size: 32px;
+      line-height: 32px;
+      margin: 0 10% 28px 10%;
+    }
+  }
+
+  h4 {
+    margin: 0 10% 20px 10%;
+    @media screen and (max-width: $break-handheld-small) {
+      font-size: 18px;
+      line-height: 18px;
+      margin: 0 10% 14px 10%;
+    }
+  }
+
+  p {
+    margin: 0 10% 10px 10%;
+  }
+
+}

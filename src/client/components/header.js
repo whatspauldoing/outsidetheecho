@@ -2,7 +2,7 @@ import { PropTypes } from 'react'
 
 export const Header = ({siteInfo}) => {
   return (
-    <div>
+    <div className="header">
       <h1>{siteInfo.h1}</h1>
       <h4>{siteInfo.h4}</h4>
       <p>{siteInfo.intro1}</p>

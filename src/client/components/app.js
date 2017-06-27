@@ -5,7 +5,8 @@ import api from '../modules/ote-api'
 import FaStar from 'react-icons/lib/fa/star'
 
 import { Header } from './header'
-//import '../style.scss'
+
+import '../style.scss'
 
 //window.React = React
 
