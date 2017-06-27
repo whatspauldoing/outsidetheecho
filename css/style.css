@@ -196,6 +196,21 @@ h4 {
     margin:10px 10%;
 }
 
+#left-wing .tweet_media {
+    max-width:70%;
+    height:auto;
+    display:block;
+    margin:10px auto 10px 0px;
+    
+}
+
+#right-wing .tweet_media {
+    max-width:70%;
+    height:auto;
+    display:block;
+    margin:10px 0px 10px auto;
+}
+
 
 @media screen and (max-width: 420px) {
     #xs-screen {

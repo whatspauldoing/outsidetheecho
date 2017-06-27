@@ -51,8 +51,10 @@ function newNews(searchTerm) {
         data = JSON.parse(localStorage.getItem("left-" + searchTerm));
         jQuery.each(data,function(key,val) {
             jQuery.each(val,function(key2,val2) {
+                console.log(val2);
                 if(val2['text']) {
                     formatted_text = "";
+                    formatted_media = "";
                     unformatted_text = val2['text'];
                     text_array = unformatted_text.split(" ");
                     for(text in text_array) {
@@ -66,8 +68,16 @@ function newNews(searchTerm) {
                         jQuery.each(val2['entities']['urls'], function() {
                             formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
                         });
+                        jQuery.each(val2['entities']['media'], function() {
+                            formatted_media += "<img class='tweet_media' src='" + this.media_url_https + "' />" + "<br/>";
+                        });                            
                     }
-                    jQuery("#left-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>");
+                    if(val2['retweeted_status']) {
+                        jQuery.each(val2['retweeted_status']['entities']['urls'], function() {
+                            formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
+                        }  );                     
+                    }
+                    jQuery("#left-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + formatted_media + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>"); 
                 }
             });
         });       
@@ -78,6 +88,7 @@ function newNews(searchTerm) {
                 jQuery.each(val,function(key2,val2) {
                     if(val2['text']) {
                         formatted_text = "";
+                        formatted_media = "";
                         unformatted_text = val2['text'];
                         text_array = unformatted_text.split(" ");
                         for(text in text_array) {
@@ -91,8 +102,17 @@ function newNews(searchTerm) {
                             jQuery.each(val2['entities']['urls'], function() {
                                 formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
                             });
+                            jQuery.each(val2['entities']['media'], function() {
+                                formatted_media += "<img class='tweet_media' src='" + this.media_url_https + "' />" + "<br/>";
+                            });                            
                         }
-                        jQuery("#left-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>");
+                        if(val2['retweeted_status']) {
+                            jQuery.each(val2['retweeted_status']['entities']['urls'], function() {
+                                formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
+                            });                        
+                        }
+                        jQuery("#left-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + formatted_media + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>"); 
+
                     }
                 });
             });
@@ -106,6 +126,7 @@ function newNews(searchTerm) {
                 jQuery.each(val,function(key2,val2) {
                     if(val2['text']) {
                         formatted_text = "";
+                        formatted_media = "";
                         unformatted_text = val2['text'];
                         text_array = unformatted_text.split(" ");
                         for(text in text_array) {
@@ -119,8 +140,16 @@ function newNews(searchTerm) {
                             jQuery.each(val2['entities']['urls'], function() {
                                 formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
                             });
+                            jQuery.each(val2['entities']['media'], function() {
+                                formatted_media += "<img class='tweet_media' src='" + this.media_url_https + "' />" + "<br/>";
+                            });                            
                         }
-                        jQuery("#right-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>");
+                        if(val2['retweeted_status']) {
+                            jQuery.each(val2['retweeted_status']['entities']['urls'], function() {
+                                formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
+                            });                        
+                        }
+                        jQuery("#right-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + formatted_media + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>");  
                     }
                 });
             });       
@@ -133,6 +162,7 @@ function newNews(searchTerm) {
                 jQuery.each(val,function(key2,val2) {
                     if(val2['text']) {
                         formatted_text = "";
+                        formatted_media = "";
                         unformatted_text = val2['text'];
                         text_array = unformatted_text.split(" ");
                         for(text in text_array) {
@@ -146,8 +176,16 @@ function newNews(searchTerm) {
                             jQuery.each(val2['entities']['urls'], function() {
                                 formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
                             });
+                            jQuery.each(val2['entities']['media'], function() {
+                                formatted_media += "<img class='tweet_media' src='" + this.media_url_https + "' />" + "<br/>";
+                            });                            
                         }
-                        jQuery("#right-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>");
+                        if(val2['retweeted_status']) {
+                            jQuery.each(val2['retweeted_status']['entities']['urls'], function() {
+                                formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
+                            });                        
+                        }
+                        jQuery("#right-wing").append("<div class='tweet'><a href='http://twitter.com/" + val2['user']['id_str'] + "/status/" + val2['id_str'] + "'>" + formatted_text + "</a><br/>" + formatted_urls + formatted_media + "<a href='http://twitter.com/" + val2['user']['screen_name'] + "'><b>" + val2['user']['name'] + "</b></a></div>");  
                     }
                 });
             });

@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <title>Outside the Echo - Providing balance to your social media news</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Noto+Serif" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="/js/js.cookie.js"></script>
-        <script src="/js/outsidetheecho.min.js"></script>
+        <script src="js/js.cookie.js"></script>
+        <script src="js/outsidetheecho.js"></script>
         <?php 
             $q = $_GET['q'];
             if($q != "") {
