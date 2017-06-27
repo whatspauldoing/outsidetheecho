@@ -16,6 +16,8 @@
             $q = $_GET['q'];
             if($q != "") {
                 echo "<script>var searchForMe = '" . $q . "';</script>";
+            } else {
+                echo "<script>var searchForMe = '';</script>";
             }
         ?>        
     </head>
@@ -28,8 +30,8 @@
             <div class="row">
                 <div class="col-md-12 center">
                     <h1>Outside The Echo<a href='http://twitter.com' target='_blank'><i class="fa fa-twitter" aria-hidden="true" style="margin-left:20px; color:#333;"></i></a></h1>
-                    <h4>Providing balance to the social media echo chamber</h4>
-                    <p>I have taken a selection of promienent and active left/right wing political commentators and pulled their feeds into this page to display their often opposing views side by side.</p>
+                    <h4>Providing political balance to the social media echo chamber</h4>
+                    <p>I have taken a selection of prominent and active left/right wing political commentators and pulled their feeds into this page to display their often opposing views side by side.</p>
                     <p>If you want to look up any particular topic type your search term into the box below and hit enter.</p>
                 </div>
             </div>
