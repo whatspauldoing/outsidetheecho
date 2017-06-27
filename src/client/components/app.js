@@ -43,7 +43,11 @@ export class App extends Component {
   render() {
     return (
       <div className="app" ref={(ref) => this._div = ref}>
-        <Header siteInfo={this.state.siteInfo} />
+        <div className="app__container">
+          <div className="app__block">
+            <Header siteInfo={this.state.siteInfo} />
+          </div>
+        </div>
       </div>
     )
   }
