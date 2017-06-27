@@ -19,20 +19,21 @@ module.exports = {
     new ExtractTextPlugin('index.css'),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
+        'NODE_ENV': JSON.stringify('development')
       }
     })
+    // ,
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compressor: {
+    //     warnings: false
+    //   }
+    // })
   ],
   module: {
     loaders : [
       {
         test: /\.js$/,
-        exclude: [/(node_modules)/,/(js)/,/(bootstrap)/],
+        exclude: [/(node_modules)/,/(legacy)/],
         loader: ["babel-loader"],
         query: {
           presets: ["latest", "stage-0", "react"]
