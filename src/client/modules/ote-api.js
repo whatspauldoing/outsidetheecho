@@ -7,7 +7,7 @@ import 'url-search-params-polyfill'
 let baseUrl = `/`
 
 let baseRequest = axios.create({
-  baseURL: baseUrl,
+  baseURL: baseUrl
 })
 
 export default {

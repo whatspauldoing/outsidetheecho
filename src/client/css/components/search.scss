@@ -1,0 +1,32 @@
+.search {
+  @extend .block;
+
+  &__container {
+    @extend .block__container;
+  }
+
+  &__holder {
+    @extend .block__holder;
+
+    text-align: center;
+
+    input[type=text] {
+      border-radius: 6px;
+      width: 300px;
+      height: 32px;
+      padding: 0 12px 0 12px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin: 0 auto 24px auto;
+      border: 1px solid $grey;
+      &::placeholder {
+        color: $grey;
+      }
+      @media screen and (max-width: $break-handheld-small) {
+        width: 80%;
+      }
+    }
+
+  }
+
+}
