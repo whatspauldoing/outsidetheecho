@@ -1,8 +1,8 @@
-<?php
+<?php header('Access-Control-Allow-Origin: *'); 
 
 /**
  *  Usage:
- *  Send the url you want to access url encoded in the url paramater, for example (This is with JS): 
+ *  Send the url you want to access url encoded in the url paramater, for example (This is with JS):
  *  /twitter-proxy.php?url='+encodeURIComponent('statuses/user_timeline.json?screen_name=MikeRogers0&count=2')
 */
 
@@ -45,7 +45,7 @@ $full_url = $config['base_url'].$url; // Url with the query on it.
 $base_url = $config['base_url'].$url_parts['path']; // Url without the query.
 
 /**
-* Code below from http://stackoverflow.com/questions/12916539/simplest-php-example-retrieving-user-timeline-with-twitter-api-version-1-1 by Rivers 
+* Code below from http://stackoverflow.com/questions/12916539/simplest-php-example-retrieving-user-timeline-with-twitter-api-version-1-1 by Rivers
 * with a few modfications by Mike Rogers to support variables in the URL nicely
 */
 
@@ -77,7 +77,7 @@ $oauth = array(
 	'oauth_timestamp' => time(),
 	'oauth_version' => '1.0'
 );
-	
+
 $base_info = buildBaseString($base_url, 'GET', array_merge($oauth, $url_arguments));
 $composite_key = rawurlencode($config['consumer_secret']) . '&' . rawurlencode($config['oauth_access_token_secret']);
 $oauth_signature = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
@@ -85,7 +85,7 @@ $oauth['oauth_signature'] = $oauth_signature;
 
 // Make Requests
 $header = array(
-	buildAuthorizationHeader($oauth), 
+	buildAuthorizationHeader($oauth),
 	'Expect:'
 );
 $options = array(
