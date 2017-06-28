@@ -1,0 +1,40 @@
+.search-results {
+  @extend .block;
+
+  &__container {
+    @extend .block__container;
+  }
+
+  &__holder {
+    @extend .block__holder;
+    width: 80%;
+    @media screen and (max-width: $break-handheld-small) {
+      width: 90%;
+    }
+  }
+
+  &__left-col {
+    float: left;
+    width: 48%;
+  }
+
+  &__right-col {
+    @extend .search-results__left-col;
+    margin-left: 4%;
+  }
+
+  &__tweet {
+    color: $white;
+    margin: 0 0 20px 0;
+    padding: 20px;
+  }
+
+  &__tweet-left {
+    background-color: $red;
+  }
+
+  &__tweet-right {
+    background-color: $blue;
+  }
+
+}

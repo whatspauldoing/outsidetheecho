@@ -7,6 +7,7 @@ import FaStar from 'react-icons/lib/fa/star'
 
 import { Header } from './header'
 import { Search } from './search'
+import { SearchResults } from './searchresults'
 
 import '../style.scss'
 
@@ -23,7 +24,9 @@ export class App extends Component {
         intro2 : "If you want to look up any particular topic type your search term into the box below and hit enter."
       },
       searchInputTerm: '',
-      searchTerms: ["Boris Johnson","Jeremy Corbyn","NHS","Grenfall Tower"]
+      searchTerms: [],
+      leftTweets: [],
+      rightTweets: []
     }
 
     this.searchInputChange = this.searchInputChange.bind(this)
@@ -44,15 +47,31 @@ export class App extends Component {
   }
 
   searchInputChange(e) {
+
     let searchTerms = this.state.searchTerms
     {(e != '') ? searchTerms.push(e) : null}
     this.setState({
       searchTerms: searchTerms
     })
-    api.loadTweets()
-    //.then(resp => {
 
-    //}).catch(console.error)
+    api.loadLeftTweets(e)
+    .then(resp => {
+      let leftTweets = this.state.leftTweets
+      leftTweets.push(...resp.data.statuses)
+      this.setState({
+        leftTweets: leftTweets
+      })
+    }).catch(console.error)
+
+    api.loadRightTweets(e)
+    .then(resp => {
+      let rightTweets = this.state.rightTweets
+      rightTweets.push(...resp.data.statuses)
+      this.setState({
+        rightTweets: rightTweets
+      })
+    }).catch(console.error)
+
   }
 
   removeSearchTerm(e) {
@@ -74,6 +93,10 @@ export class App extends Component {
           searchTerms={this.state.searchTerms}
           handleSearchInputEnter={this.searchInputChange}
           handleRemoveSearchTerm={this.removeSearchTerm}
+        />
+        <SearchResults
+          leftTweets={this.state.leftTweets}
+          rightTweets={this.state.rightTweets}
         />
       </div>
     )
