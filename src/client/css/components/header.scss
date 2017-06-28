@@ -12,16 +12,31 @@
 
   h1 {
     padding-top: 40px;
-    margin: 0 10% 36px 10%;
+    margin: 0 0 36px 0;
+    svg {
+      width: 60px;
+      height: 60px;
+      margin-top: -10px;
+    }
     @media screen and (max-width: $break-handheld-small) {
       font-size: 36px;
       line-height: 36px;
-      margin: 0 10% 24px 10%;
+      margin: 0 0 24px 0;
+      svg {
+        width: 46px;
+        height: 46px;
+        margin-top: -4px;
+      }
     }
     @media screen and (max-width: $break-handheld-very-small) {
       font-size: 28px;
       line-height: 28px;
-      margin: 0 10% 20px 10%;
+      margin: 0 0 20px 0;
+      svg {
+        width: 36px;
+        height: 36px;
+        margin-top: -2px;
+      }
     }
   }
 
