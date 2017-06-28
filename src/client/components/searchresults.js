@@ -12,15 +12,15 @@ export class SearchResults extends Component {
         <div className="search-results__container">
           <div className="search-results__holder">
             <div className="search-results__left-col">
-              {this.props.leftTweets.map(tweet =>
-                <div className="search-results__tweet search-results__tweet-left" key={tweet.id_str}>
+              {this.props.leftTweets.map((tweet,i) =>
+                <div className="search-results__tweet search-results__tweet-left" key={i}>
                   {tweet.text}
                 </div>
               )}
             </div>
             <div className="search-results__right-col">
-              {this.props.rightTweets.map(tweet =>
-                <div className="search-results__tweet search-results__tweet-right" key={tweet.id_str}>
+              {this.props.rightTweets.map((tweet,i) =>
+                <div className="search-results__tweet search-results__tweet-right" key={i}>
                   {tweet.text}
                 </div>
               )}

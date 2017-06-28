@@ -33,7 +33,7 @@ export class App extends Component {
     this.removeSearchTerm = this.removeSearchTerm.bind(this)
 
   }
-
+  /* Timeline methods that I thought I would leave in for ya... */
   componentDidMount() {
   }
 
@@ -47,26 +47,33 @@ export class App extends Component {
   }
 
   searchInputChange(e) {
-
+    // If we've made it this far it is because someone hit the enter key further down the chain
+    // Create a copy of the search terms and push append a new search term onto the array if the
+    // text input isn't empty. TODO: check its not there already?
     let searchTerms = this.state.searchTerms
     {(e != '') ? searchTerms.push(e) : null}
+    // Set State:
     this.setState({
       searchTerms: searchTerms
     })
 
+    // Call the api with our new search term and append it to the leftTweets array
     api.loadLeftTweets(e)
     .then(resp => {
       let leftTweets = this.state.leftTweets
       leftTweets.push(...resp.data.statuses)
+      // Set State:
       this.setState({
         leftTweets: leftTweets
       })
     }).catch(console.error)
 
+    // Call the api with our new search term and append it to the rightTweets array
     api.loadRightTweets(e)
     .then(resp => {
       let rightTweets = this.state.rightTweets
       rightTweets.push(...resp.data.statuses)
+      // Set State:
       this.setState({
         rightTweets: rightTweets
       })
@@ -74,12 +81,37 @@ export class App extends Component {
 
   }
 
-  removeSearchTerm(e) {
-    let searchTerms = this.state.searchTerms.filter(function(i) {
-    	return i != e
+  removeSearchTerm(searchTerm) {
+    // Clear all insightful conservative though that contains the search term
+    let rT = []
+    let rightTweets = this.state.rightTweets.filter(function(i) {
+    	if (i.text.indexOf(searchTerm) == -1) {
+         rT.push(i)
+       }
     })
+
+    // Clear all useless leftwing "thought" on the matter too
+    let lT = []
+    let leftTweets = this.state.leftTweets.filter(function(i) {
+    	if (i.text.indexOf(searchTerm) == -1) {
+         lT.push(i)
+       }
+    })
+
+    // Remove the search term from the array of search terms
+    let searchTerms = this.state.searchTerms.filter(function(i) {
+    	return i != searchTerm
+    })
+
+    // Hack fix to clear both columns as not all tweets have the keywords in. I'm not clear from the API how it is working though
+    // If there are no searchTerms clear both columns of tweets:
+    {(searchTerms.length == 0) ? (rT=[], lT= []) : null}
+
+    // Set State: (all at once for a change)
     this.setState({
-      searchTerms: searchTerms
+      searchTerms: searchTerms,
+      leftTweets: lT,
+      rightTweets: rT
     })
   }
 
