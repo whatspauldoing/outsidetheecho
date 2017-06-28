@@ -22,10 +22,12 @@ export class App extends Component {
         intro1 : "I have taken a selection of prominent and active left/right wing political commentators and pulled their feeds into this page to display their often opposing views side by side.",
         intro2 : "If you want to look up any particular topic type your search term into the box below and hit enter."
       },
-      searchInputTerm: ''
+      searchInputTerm: '',
+      searchTerms: ["Boris Johnson","Jeremy Corbyn","NHS","Grenfall Tower"]
     }
 
     this.searchInputChange = this.searchInputChange.bind(this)
+    this.removeSearchTerm = this.removeSearchTerm.bind(this)
 
   }
 
@@ -42,17 +44,37 @@ export class App extends Component {
   }
 
   searchInputChange(e) {
+    let searchTerms = this.state.searchTerms
+    {(e != '') ? searchTerms.push(e) : null}
+    this.setState({
+      searchTerms: searchTerms
+    })
     api.loadTweets()
     //.then(resp => {
 
     //}).catch(console.error)
   }
 
+  removeSearchTerm(e) {
+    let searchTerms = this.state.searchTerms.filter(function(i) {
+    	return i != e
+    })
+    this.setState({
+      searchTerms: searchTerms
+    })
+  }
+
   render() {
     return (
       <div className="app" ref={(ref) => this._div = ref}>
-        <Header siteInfo={this.state.siteInfo} />
-        <Search handleSearchInputEnter={this.searchInputChange} />
+        <Header
+          siteInfo={this.state.siteInfo}
+        />
+        <Search
+          searchTerms={this.state.searchTerms}
+          handleSearchInputEnter={this.searchInputChange}
+          handleRemoveSearchTerm={this.removeSearchTerm}
+        />
       </div>
     )
   }

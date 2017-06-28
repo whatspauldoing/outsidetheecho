@@ -9,6 +9,7 @@ export class Search extends Component {
     }
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleAddTerm = this.handleAddTerm.bind(this);
+    this.handleRemoveTerm = this.handleRemoveTerm.bind(this);
   }
 
   handleUserInput(searchTerm) {
@@ -24,14 +25,23 @@ export class Search extends Component {
     })
   }
 
+  handleRemoveTerm(searchTerm) {
+    this.props.handleRemoveSearchTerm(searchTerm)
+  }
+
   render() {
     return (
       <div className="search">
         <div className="search__container">
           <div className="search__holder">
-            <SearchBar handleSearchInputEnter={this.handleAddTerm}
+            <SearchBar
+              handleSearchInputEnter={this.handleAddTerm}
               handleSearchInputChange={this.handleUserInput}
               searchTerm={this.state.searchTerm}
+            />
+            <SearchTerms
+              searchTerms={this.props.searchTerms}
+              handleRemoveSearchTerm={this.handleRemoveTerm}
             />
           </div>
         </div>
@@ -69,9 +79,35 @@ const SearchBar = React.createClass({
         />
     );
   }
-});
+})
+
+const SearchTerms = React.createClass({
+
+  handleClick(e) {
+    this.props.handleRemoveSearchTerm(
+      e.target.getAttribute("data-term")
+    )
+  },
+
+  render() {
+    return (
+      <div className="search__terms">
+        {this.props.searchTerms.map(searchTerm =>
+          <div className="search__term" key={searchTerm}>
+              {searchTerm}
+              <div className="search__term-close"
+                data-term={searchTerm}
+                onClick={this.handleClick}>x</div>
+          </div>
+        )}
+      </div>
+    )
+  }
+})
 
 
 Search.propTypes = {
-  handleSearchInputEnter: PropTypes.func
+  handleSearchInputEnter: PropTypes.func,
+  handleRemoveSearchTerm: PropTypes.func,
+  searchTerms: PropTypes.array
 }

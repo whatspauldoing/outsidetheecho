@@ -29,4 +29,31 @@
 
   }
 
+  &__terms {
+    margin: 0 auto;
+  }
+
+  &__term {
+    position: relative;
+    background-color: $dark_brown;
+    padding: 10px 14px 10px 10px;
+    margin: 10px;
+    display: inline-block;
+    color: $white;
+  }
+
+  &__term-close {
+    position: absolute;
+    color: $white;
+    font-size: 9px;
+    line-height: 9px;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      color: $grey;
+    }
+  }
+
 }
