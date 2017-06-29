@@ -8,6 +8,7 @@
   &__holder {
     @extend .block__holder;
     width: 80%;
+    padding-bottom: 100px;
     @media screen and (max-width: $break-handheld-small) {
       width: 90%;
     }

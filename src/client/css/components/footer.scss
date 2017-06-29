@@ -1,0 +1,19 @@
+.footer {
+  @extend .block;
+  background-color: $grey;
+  clear: both;
+
+  &__container {
+    @extend .block__container;
+  }
+
+  &__holder {
+    @extend .block__holder;
+    padding: 20px 0 40px;
+    width: 80%;
+    @media screen and (max-width: $break-handheld-small) {
+      width: 90%;
+    }
+  }
+
+}

@@ -35,6 +35,8 @@ export class App extends Component {
   }
   /* Timeline methods that I thought I would leave in for ya... */
   componentDidMount() {
+    // Handy line to uncomment for preloaded results:
+    // this.searchInputChange("DUP")
   }
 
   componentWillMount() {
@@ -130,6 +132,20 @@ export class App extends Component {
           leftTweets={this.state.leftTweets}
           rightTweets={this.state.rightTweets}
         />
+        <div className="footer">
+          <div className="footer__container">
+            <div className="footer__holder">
+              <p>Hope you enjoy it, if we get loads of views it will probably hit the API limit and die, but I'll cross that bridge when I come to it. Cheers!</p>
+              <p>Thanks to:<br/>
+                  <a href='https://github.com/hatemzidi' target='_blank'>https://github.com/hatemzidi</a> for the twitter-proxy code.<br/>
+                  <a href='https://github.com/carhartl/jquery-cookie' target='_blank'>https://github.com/carhartl/jquery-cookie</a> for the cookies<br/>
+                  <a href='https://twitter.com/rufushound' target='_blank'>@rufushound</a> for the lefties list<br/>
+                  <a href='https://www.reddit.com/user/Hedgehogkilla' target='_blank'>https://www.reddit.com/user/Hedgehogkilla</a> for the righties list.
+              </p>
+              <p>Email: <a href='mailto:whatspauldoing@gmail.com'>Whatspauldoing</a> with comments/suggestions/right wingers/left wingers.</p>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
