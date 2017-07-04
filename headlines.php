@@ -32,32 +32,21 @@
                     <h1>Outside The Echo<a href='http://twitter.com' target='_blank'><i class="fa fa-twitter" aria-hidden="true" style="margin-left:20px; color:#333;"></i></a></h1>
                     <h4>Providing political balance to the social media echo chamber</h4>
                     <div  style='margin-top:10px;'>
-                        <a class='menu' href='/headlines.php'  style='color:#333;'>Headlines</a> | <a class='menu' href='/'  style='color:#333;'>Press Opinion</a> | <a class='menu' href='/people.php'  style='color:#333;'>People's Opinion</a> | <a class='menu' href='/commentary/'  style='color:#333;'>Outside the Echo Commentary</a>   
+                        <a class='menu' href='/headlines.php'  style='color:#333;'>Headlines</a> | <a class='menu' href='/'  style='color:#333;'>Press Opinion</a> | <a class='menu' href='/people.php'  style='color:#333;'>People's Opinion</a> | <a class='menu' href='/commentary/'  style='color:#333;'>Outside the Echo Commentary</a>  
                     </div>
                 </div>                
             </div>
             <div id='searchRow' class="row">
-                <p class='center'>We have 5 news outlets from left to right wing, search for a topic and see what they're saying.</p>
-                <div id='searchBox'>
-                    <input type='text' name='freeSearch' id='freeSearch' placeholder='Define the conversation...' />
-                    <!-- <input id='searchNow' type='button' value='search' /> -->
-                </div>
-                <div id='searchTerms' class="col-md-12 center">
-                    <div class='clearfix'></div>
-                </div>
+                <p class='center'>We have 5 news outlets from left to right wing (US and UK), find out what they're saying is important right now.</p>
             </div>    
-            <div class='center' style='width:100%'>
-                <div class='search_term' id='clear' style='margin:auto; width:200px; float:none;'>Clear All</div>
-                <div class='clearfix'></div>
-            </div>
             <div class='clearfix'></div>
-            <div id='tweet-content'>
-                <div id='tweetRow'>
-                    <span id='TheCanarySays' class='TheCanarySays'></span>
-                    <span id='guardian' class='Guardian'></span>
-                    <span id='SpecCoffeeHouse' class='SpecCoffeeHouse'></span>
-                    <span id='DailyMailUK' class='DailyMailUK'></span>
-                    <span id='ConHome' class='ConHome'></span>
+            <div id='headline-content'>
+                <div id='headlineRow'>
+                    <span class='news-col' id='huffPost'></span>
+                    <span class='news-col' id='independent'></span>
+                    <span class='news-col' id='googleNews'></span>
+                    <span class='news-col' id='telegraph'></span>
+                    <span class='news-col' id='breitBart'></span>
                 </div>
             </div>
             <div class='clearfix'></div>
@@ -69,11 +58,6 @@
                     <i class="fa fa-arrow-right" aria-hidden="true" style='font-size:150%; color:#0C42C0;'></i>
                 </div>
             </div>
-            <div id='tweet-content'>
-                <p class='center'>Here's the top 5 BBC news stories for inspiration.</p>
-                <div id='bbc_news' class="row"></div>
-            </div>
-            
             <div id='articleBox' class='row'>
                 <h1 style='color:#fff; text-align:center; background:#000; padding:20px; margin:0px;'>Article Preview...</h1>
                 <a href='' target="_blank" id='articleClick' style='color:#fff; text-align:center; background:#000; padding:20px; cursor:pointer; margin:0px; display:block; width:100%;'>Please visit the original page and support the publication. <i class='fa fa-external-link-square' aria-hidden='true'></i></a>
@@ -87,7 +71,7 @@
                         <a href='https://github.com/jonhurlock/' target='_blank'>https://github.com/jonhurlock/</a> for the twitter-proxy code.<br/>
                         <a href='https://github.com/carhartl/jquery-cookie' target='_blank'>https://github.com/carhartl/jquery-cookie</a> for the cookies.<br/>
                         <a href='http://simplehtmldom.sourceforge.net/' target='_blank'>http://simplehtmldom.sourceforge.net/</a> for the article grabbing.<br/>
-                        <a href='http://newsapi.org' target='_blank'>http://newsapi.org</a> for the bbc feed.<br/>
+                        <a href='http://newsapi.org' target='_blank'>http://newsapi.org</a> for the headline feeds.<br/>
                     </p>
                     <p>Email: <a href='mailto:whatspauldoing@gmail.com' target='_self'>Whatspauldoing</a> with comments/suggestions/right wingers/left wingers.</p>
                     
@@ -96,7 +80,7 @@
         </div>
         <script>
             jQuery(document).ready(function() {
-                setUp(searchForMe);
+                setUpHeadlines();
             });
         </script>
         <script>

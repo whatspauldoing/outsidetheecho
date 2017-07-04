@@ -1,0 +1,498 @@
+/*
+Theme Name: Teddington Osteopaths
+Theme URI: http://teddingtonosteopaths.co.uk
+Description: A bespoke theme for the business Teddington Osteopaths
+Author: Paul Seymour
+Author URI: 
+Version: 1.0
+Tags: responsive, bootstrap
+
+License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+License URI: http://creativecommons.org/licenses/by-sa/3.0/
+
+*/
+/*
+
+Blue: #0077c8
+Yellow: #ffc72c
+
+*/
+
+
+@import url('../bootstrap/css/bootstrap.css'); 
+@import url('../bootstrap/css/bootstrap-responsive.css');
+@import url('../bootstrap/css/bootstrap-grid.css');
+@import url('../fontawesome/css/font-awesome.css'); 
+body { 
+    height:100%;
+     padding-bottom: 40px; 
+}
+
+i {
+    display:block;
+    margin:5px 0px;
+}
+
+p {
+    font-family: 'Noto Serif', serif;
+    margin:5px 0px;
+}
+
+h3 {
+    color:#fff;
+    margin:0px;
+}
+
+h4 {
+    color:#fff;
+    margin:0px;
+    font-family: 'Noto Serif', serif;
+    font-size:130%;
+}
+
+
+h5 {
+    font-family: 'Noto Serif', serif;
+    margin:0px 0px;
+    font-size:130%;
+    color:#fff;
+}
+
+.tweet {
+    max-width: 18%;
+    float:left;
+    display:block;
+    padding:20px;
+    font-family: 'Noto Serif', serif;
+    margin:5px;
+    color:#fff;
+    font-size: 95%;
+}
+
+#bbc_news {
+    margin-bottom:20px;
+}
+
+.bbc {
+    background-color:#F1EEDF;
+    width:20%;
+    float:left;
+    border:solid 10px #fff;
+    padding:10px 20px;
+}
+
+.news-col {
+    width:20%;
+    float:left;
+}
+
+.headline {
+    background-color:#F1EEDF;
+    width:100%;
+    height:300px;
+    min-height:300px;
+    overflow: hidden;
+    border:solid 10px #fff;
+    padding:10px 20px;
+}
+
+.headline:hover {
+    background-color:#F1EEDF;
+    width:100%;
+    height:auto;
+    overflow: normal;
+    border:solid 10px #fff;
+    padding:10px 20px;
+}
+
+
+.bbc h3, .headline h3 {
+    font-family: 'Noto Serif', cursive;
+    color:#333;
+    font-size:120%;
+    font-weight: normal;
+    line-height:22px;
+}
+
+.headline h4 {
+    font-family: 'Abril Fatface', cursive;
+    color:#333;
+    font-size:120%;
+    font-weight: normal;
+    line-height:22px;
+}
+
+.bbc p, .headline p {
+    color:#333;
+    font-weight: normal;
+    font-size:90%;
+
+}
+
+#huffPost div {
+    background-color:#0DBE98;
+}
+
+#huffPost h4, #huffPost h3, #huffPost p, #independent h4, #independent h3, #independent p, #breitBart h4, #breitBart h3, #breitBart p {
+        color:#fff;
+}
+
+#independent div {
+    background-color:#da383a;
+}
+
+#googleNews div {
+    background-color:#F7F7F7;
+}
+
+#telegraph div {
+    background-color:#F0E9DF;
+}
+
+#breitBart div {
+    background-color:#EC602B;
+}
+
+.Guardian {
+    background-color:#C70039;
+    max-width:20%;
+    min-width:20%;
+    float:left;
+    display:inline-block;
+    padding:20px;
+    font-family: 'Noto Serif', serif;
+    margin:5px 0px;
+    color:#fff;
+    font-size: 95%;    
+    border-left:solid 5px #fff;
+    border-right:solid 5px #fff;
+    white-space:normal;
+}
+
+.TheCanarySays {
+    background-color:#E91A1A;
+    max-width:20%;
+    min-width:20%;
+    float:left;
+    display:inline-block;
+    margin:10px;
+    padding:20px;
+    font-family: 'Noto Serif', serif;
+    margin:5px 0px;
+    color:#fff;
+    font-size: 95%;    
+    border-left:solid 5px #fff;
+    border-right:solid 5px #fff;
+    white-space:normal;
+}
+
+.DailyMailUK {
+    background-color:#1A91E9;
+    max-width:20%;
+    min-width:20%;
+    float:left;
+    display:inline-block;
+    padding:20px;
+    font-family: 'Noto Serif', serif;
+    margin:5px 0px;
+    color:#fff;
+    font-size: 95%;    
+    border-left:solid 5px #fff;
+    border-right:solid 5px #fff;
+    white-space:normal;
+}
+.ConHome {
+    background-color:#0C42C0;
+    max-width:20%;
+    min-width:20%;
+    float:left;
+    display:inline-block;
+    padding:20px;
+    font-family: 'Noto Serif', serif;
+    margin:5px 0px;
+    color:#fff;
+    font-size: 95%;    
+    border-left:solid 5px #fff;
+    border-right:solid 5px #fff;
+    white-space:normal;
+}
+
+.SpecCoffeeHouse {
+    background-color:#656972;
+    max-width:20%;
+    min-width:20%;
+    float:left;
+    display:inline-block;
+    padding:20px;
+    font-family: 'Noto Serif', serif;
+    margin:5px 0px;
+    color:#fff;
+    font-size: 95%;
+    border-left:solid 5px #fff;
+    border-right:solid 5px #fff;
+    white-space:normal;
+}
+
+
+#cookies {
+    background-color:#555;
+    min-height:20px;
+    text-align:center;
+    display:none;
+}
+
+#props {
+    background-color:#555;
+    min-height:20px;
+    padding:20px;
+    position:relative;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    margin:0px;
+}
+
+#cookies p {
+    font-family: 'Noto Serif', serif;
+    color:#fff;
+    text-align:center;
+    width:100%;
+}
+
+#cookies a {
+    font-family: 'Noto Serif', serif;
+    color:#fff;
+    text-align:center;
+    width:100%;
+    margin-bottom:5px;
+    cursor:pointer;
+}
+
+
+#props p {
+    font-family: 'Noto Serif', serif;
+    color:#fff;
+    width:100%;
+    margin:10px 0px;
+    font-size:110%;
+}
+
+#props a {
+    font-family: 'Noto Serif', serif;
+    color:#ddd;
+    cursor:pointer;
+    font-size:100%;
+}
+
+
+#props a:hover {
+    font-family: 'Noto Serif', serif;
+    color:#aaa;
+    cursor:pointer;
+    font-size:100%;
+}
+
+.buffer {
+    float:left;
+    display:block;
+}
+
+a {
+    font-family: 'Noto Serif', serif;
+    color:#fff;
+    font-size:120%;
+}
+
+
+a:hover, a:visited {
+    color:#fff;
+    text-decoration:none;
+}
+
+h1, h2, h4 {
+    font-family: 'Abril Fatface', cursive;
+    color:#333;
+    margin:0px;
+    font-weight: normal;
+}
+h4 {
+    margin-top:10px;
+}
+.center {
+    text-align:center;
+    margin:0 auto;
+    padding:10px 0px;
+}
+
+.search_term {
+    cursor:pointer;
+    font-family: 'Noto Serif', serif;
+    background-color:#555;
+    color:#fff;
+    font-size:150%;
+    padding:10px;
+    margin:10px 10px;
+    display:block;
+    float:left;
+}
+
+.search_term:hover {
+    cursor:pointer;
+    font-family: 'Noto Serif', serif;
+    background-color:#FFC300;
+    color:#333;
+    font-size:150%;
+}
+
+#searchRow {
+    display:block;
+}
+#tweetRow {
+    display:block;
+    white-space: nowrap;
+    width:100%;
+}
+#left-wing {
+    width:45%;
+    float:left;
+    padding:20px;
+    margin-left:5%;
+}
+
+#freeSearch {
+    display:block;
+    min-height:30px;
+    min-width:400px;
+    margin:10px auto;
+}
+
+#searchTerms {
+    width:80%;
+    text-align:center;
+    padding:0px;
+    margin:10px 10%;
+}
+
+.tweet_media {
+    max-width:100%;
+    height:auto;
+    display:block;
+    margin:10px auto 10px 0px;
+    
+}
+
+#articleBox {
+    display:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+    padding:80px;
+    background-color: rgba(0,0,0,.5);
+    width:100%;
+    height:100%;
+    margin:0px;
+    z-index:100;   
+}
+#articleFrame {
+    background-color:#fff;
+    overflow-y: scroll;
+}
+
+#articleFrame a {
+    color:#333;
+    font-size:100%;
+    text-decoration:underline;
+}
+
+#articleFrame img {
+    float:left;
+    margin:20px;
+}
+
+#articleFrame h1 {
+    color:#333;
+    margin:10px 20px;
+}
+
+#articleFrame p {
+    margin:10px 20px;
+}
+
+#clickBlocker {
+    display:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+    padding:80px;
+    width:100%;
+    height:100%;
+    margin:0px;
+    z-index:200;   
+    background-color: rgba(0,0,0,.1);
+}
+
+#the-content {
+    height:100%;
+}
+
+#swipe_directions {
+    display:none;
+}
+@media screen and (max-width: 600px) {
+    #swipe_directions {
+        display:block;
+    }
+    #tweet-content, #bbc-content, #headline-content {
+        max-width:100%;
+        overflow-x:scroll;
+        height:300px;
+    }
+    #tweetRow, #bbc_news, #headlineRow {
+        width:500%;
+        min-height:300px;
+        overflow-y:hidden;
+        margin-left:0px;
+        margin-bottom:10px;
+        
+    }
+    #freeSearch {
+        min-width:90%;
+    }
+    .ConHome, .SpecCoffeeHouse, .DailyMailUK, .TheCanarySays, .Guardian, .bbc, .headline {
+        min-width:20%;
+        display:inline-block;
+        border:none;
+        height:300px;
+    }    
+    
+    .headline:hover {
+        min-width:20%;
+        display:inline-block;
+        border:none;
+        height:auto;
+    }
+    
+    #props {
+        background-color:#555;
+        min-height:20px;
+        padding:20px;
+        position:relative;
+        bottom:0px;
+        left:0px;
+        width:100%;
+        margin:0px;
+    }
+    #articleBox {
+        display:none;
+        position:absolute;
+        top:0px;
+        left:0px;
+        padding:10px;
+        background-color: rgba(0,0,0,.5);
+        width:100%;
+        height:100%;
+        margin:0px;
+        z-index:100;   
+    }    
+    
+}

@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <title>Outside the Echo - Providing balance to your social media news</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/style_v2.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Noto+Serif" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="js/js.cookie.js"></script>
-        <script src="js/outsidetheecho_v2.js"></script>
+        <script src="js/outsidetheecho.js"></script>
         <?php 
             $q = $_GET['q'];
             if($q != "") {
@@ -22,7 +22,7 @@
         ?>        
     </head>
     <body>
-        <div id='the-content' class="container-fluid">
+        <div class="container-fluid">
             <div class="row" id='cookies'>
                 <p>We use cookies to remember what you've search for in the past, that's it though.</p>
                 <a onclick="jQuery('#cookies').hide();">close</a>
@@ -32,12 +32,16 @@
                     <h1>Outside The Echo<a href='http://twitter.com' target='_blank'><i class="fa fa-twitter" aria-hidden="true" style="margin-left:20px; color:#333;"></i></a></h1>
                     <h4>Providing political balance to the social media echo chamber</h4>
                     <div  style='margin-top:10px;'>
-                        <a class='menu' href='/headlines.php'  style='color:#333;'>Headlines</a> | <a class='menu' href='/'  style='color:#333;'>Press Opinion</a> | <a class='menu' href='/people.php'  style='color:#333;'>People's Opinion</a> | <a class='menu' href='/commentary/'  style='color:#333;'>Outside the Echo Commentary</a>   
+                        <a class='menu' href='/headlines.php'  style='color:#333;'>Headlines</a> | <a class='menu' href='/'  style='color:#333;'>Press Opinion</a> | <a class='menu' href='/people.php'  style='color:#333;'>People's Opinion</a> | <a class='menu' href='/commentary/'  style='color:#333;'>Outside the Echo Commentary</a>  
                     </div>
-                </div>                
+                    <p>I have taken a selection of prominent and active left/right wing political commentators and pulled their feeds into this page to display their often opposing views side by side.</p>
+                    <p>If you want to look up any particular topic type your search term into the box below and hit enter.</p>
+                </div>
             </div>
+            <div id='xs-screen' class="row">
+                <h2>Please turn your device on it's side, it's better for balance.</h2>
+            </div>   
             <div id='searchRow' class="row">
-                <p class='center'>We have 5 news outlets from left to right wing, search for a topic and see what they're saying.</p>
                 <div id='searchBox'>
                     <input type='text' name='freeSearch' id='freeSearch' placeholder='Define the conversation...' />
                     <!-- <input id='searchNow' type='button' value='search' /> -->
@@ -45,49 +49,31 @@
                 <div id='searchTerms' class="col-md-12 center">
                     <div class='clearfix'></div>
                 </div>
-            </div>    
+            </div>      
             <div class='center' style='width:100%'>
                 <div class='search_term' id='clear' style='margin:auto; width:200px; float:none;'>Clear All</div>
                 <div class='clearfix'></div>
+            </div>            
+            <div  id='tweetRow' class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-10" style="text-align:left">
+                    <div id='left-wing'>
+                    </div>
+                    <div id='right-wing'>
+                    </div>                    
+                </div>
+                <div class="col-xs-1"></div>
             </div>
             <div class='clearfix'></div>
-            <div id='tweet-content'>
-                <div id='tweetRow'>
-                    <span id='TheCanarySays' class='TheCanarySays'></span>
-                    <span id='guardian' class='Guardian'></span>
-                    <span id='SpecCoffeeHouse' class='SpecCoffeeHouse'></span>
-                    <span id='DailyMailUK' class='DailyMailUK'></span>
-                    <span id='ConHome' class='ConHome'></span>
-                </div>
-            </div>
-            <div class='clearfix'></div>
-            <div class="row" id='swipe_directions' style='margin-bottom:20px;'>
-                <div class='col-md-6' style='text-align:left; float:left; width:50%;'>
-                    <i class="fa fa-arrow-left" aria-hidden="true" style='font-size:150%; color:#E91A1A;'></i>
-                </div>
-                <div class='col-md-6' style='text-align:right; float:left; width:50%;'>
-                    <i class="fa fa-arrow-right" aria-hidden="true" style='font-size:150%; color:#0C42C0;'></i>
-                </div>
-            </div>
-            <div id='tweet-content'>
-                <p class='center'>Here's the top 5 BBC news stories for inspiration.</p>
-                <div id='bbc_news' class="row"></div>
-            </div>
-            
-            <div id='articleBox' class='row'>
-                <h1 style='color:#fff; text-align:center; background:#000; padding:20px; margin:0px;'>Article Preview...</h1>
-                <a href='' target="_blank" id='articleClick' style='color:#fff; text-align:center; background:#000; padding:20px; cursor:pointer; margin:0px; display:block; width:100%;'>Please visit the original page and support the publication. <i class='fa fa-external-link-square' aria-hidden='true'></i></a>
-                <div id='articleFrame' name='article' width='100%' height='800px' style='border:none'></div>
-            </div>
             <div class='row' id='props'>
                 <div class='col-md-12'>
                     <p>This is a project born of wanting to break out of the social media echo chamber.</p>
                     <p>Hope you enjoy it, if we get loads of views it will probably hit the API limit and die, but I'll cross that bridge when I come to it. Cheers!</p>
                     <p>Thanks to:<br/>
-                        <a href='https://github.com/jonhurlock/' target='_blank'>https://github.com/jonhurlock/</a> for the twitter-proxy code.<br/>
-                        <a href='https://github.com/carhartl/jquery-cookie' target='_blank'>https://github.com/carhartl/jquery-cookie</a> for the cookies.<br/>
-                        <a href='http://simplehtmldom.sourceforge.net/' target='_blank'>http://simplehtmldom.sourceforge.net/</a> for the article grabbing.<br/>
-                        <a href='http://newsapi.org' target='_blank'>http://newsapi.org</a> for the bbc feed.<br/>
+                        <a href='https://github.com/hatemzidi' target='_blank'>https://github.com/hatemzidi</a> for the twitter-proxy code.<br/>
+                        <a href='https://github.com/carhartl/jquery-cookie' target='_blank'>https://github.com/carhartl/jquery-cookie</a> for the cookies<br/>
+                        <a href='https://twitter.com/rufushound' target='_blank'>@rufushound</a> for the lefties list<br/>
+                        <a href='https://www.reddit.com/user/Hedgehogkilla' target='_blank'>https://www.reddit.com/user/Hedgehogkilla</a> for the righties list.
                     </p>
                     <p>Email: <a href='mailto:whatspauldoing@gmail.com' target='_self'>Whatspauldoing</a> with comments/suggestions/right wingers/left wingers.</p>
                     

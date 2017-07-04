@@ -82,7 +82,8 @@ function newNews(searchTerm) {
             });
         });       
    } else {
-        leftwing = encodeURIComponent("from:owenjones OR from:abiwilks OR from:marcuschown OR from:mrjamesob OR from:thestaggers OR from:thecanarysays OR from:TomLondon6 OR from:georgemonbiot OR from:paulmasonnews");
+        leftwing = encodeURIComponent("from:independent OR from:TheCanarySays"); 
+        //leftwing = encodeURIComponent("from:owenjones OR from:abiwilks OR from:marcuschown OR from:mrjamesob OR from:thestaggers OR from:thecanarysays OR from:TomLondon6 OR from:georgemonbiot OR from:paulmasonnews");
         jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + leftwing + "&count=10&result_type=recent&language=en&include_entities=true"), function( data ) {
             jQuery.each(data,function(key,val) {
                 jQuery.each(val,function(key2,val2) {
@@ -155,7 +156,8 @@ function newNews(searchTerm) {
             });       
    } else {
        cookieObjRight = "";
-        rightwing = encodeURIComponent("from:toadmeister OR from:Melanielatest OR from:DanielJHannan OR from:isabelhardman OR from:montie OR from:toryboypierce OR from:juliaHB1 OR from:iaindale OR from:DPJHodges");
+        rightwing = encodeURIComponent("from:dailymailuk OR from:ConHome");
+        //rightwing = encodeURIComponent("from:toadmeister OR from:Melanielatest OR from:DanielJHannan OR from:isabelhardman OR from:montie OR from:toryboypierce OR from:juliaHB1 OR from:iaindale OR from:DPJHodges");
         jQuery.get( "functions/twitter-proxy.php?url=search/tweets.json?"+encodeURIComponent("q=" + searchTerm + "%20" + rightwing + "&count=10&result_type=recent&language=en&include_entities=true"), function( data ) {
             cookieObjRight = JSON.stringify(data);
             jQuery.each(data,function(key,val) {
@@ -176,7 +178,7 @@ function newNews(searchTerm) {
                             jQuery.each(val2['entities']['urls'], function() {
                                 formatted_urls += "<a href='" + this.expanded_url + "'>Article <i class='fa fa-link' aria-hidden='true'></i></a>" + "<br/>";
                             });
-                            jQuery.each(val2['entities']['media'], function() {
+                            jQuery.each(val2['entities']['media'], function() { 
                                 formatted_media += "<img class='tweet_media' src='" + this.media_url_https + "' />" + "<br/>";
                             });                            
                         }

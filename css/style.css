@@ -91,6 +91,18 @@ p {
     font-size:100%;
 }
 
+#tweet-range .tweet {
+    background:#C12D2D;
+    margin:10px;
+    padding:20px;
+    max-width:18%;
+    float:left;
+}
+
+#tweet-range .tweet:hover {
+    background:#641E1E;
+}
+
 #left-wing .tweet {
     background:#C12D2D;
     margin:10px;
